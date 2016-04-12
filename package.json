@@ -7,7 +7,8 @@
     "test": "ava -v",
     "build": "npm run clean && babel src -d lib",
     "clean": "rimraf lib",
-    "example": "webpack-dev-server --content-base example/"
+    "example": "webpack-dev-server --content-base example/",
+    "prepublish": "npm run build"
   },
   "author": "gavriguy",
   "license": "MIT",
