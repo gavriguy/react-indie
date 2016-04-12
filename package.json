@@ -4,7 +4,7 @@
   "description": "An independent react Component that holds all its logic inside",
   "main": "lib/index.js",
   "scripts": {
-    "test": "ava",
+    "test": "ava -v",
     "build": "npm run clean && babel src -d lib",
     "clean": "rimraf lib",
     "example": "webpack-dev-server --content-base example/"
