@@ -42,8 +42,9 @@ indie()
   }))
   .render(Weather) // pass component without its props
 
-  // NOTE: the use of () after the => sign it signifies that the contained value
-  // is returned (without the need to explicitly call return)
+  // NOTE: the above example uses parenthesized body shortcut (es2015 feature)
+  // in the `initial` & `load` functions to return the object literal expression
+  // without using the `return` expression.
 
 ```
 
