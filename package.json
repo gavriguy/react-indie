@@ -1,6 +1,6 @@
 {
   "name": "react-indie",
-  "version": "1.0.8",
+  "version": "0.0.0-semantic-release-configured",
   "description": "An independent react Component that holds all its logic inside",
   "main": "lib/index.js",
   "scripts": {
@@ -8,10 +8,14 @@
     "build": "npm run clean && babel src -d lib",
     "clean": "rimraf lib",
     "example": "webpack-dev-server --content-base example/",
-    "prepublish": "npm run build && npm version patch"
+    "prepublish": "npm run build && npm version patch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "gavriguy",
-  "repository": "github:gavriguy/react-indie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gavriguy/react-indie.git"
+  },
   "license": "MIT",
   "keywords": [
     "react",
@@ -43,6 +47,7 @@
     "react-dom": "15.0.1",
     "react-resolver": "3.0.1",
     "rimraf": "2.5.2",
+    "semantic-release": "4.3.5",
     "webpack": "1.12.15",
     "webpack-dev-server": "1.14.1"
   },

@@ -1,11 +1,18 @@
+sudo: false
 language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
 node_js:
-- '5'
-deploy:
-  skip_cleanup: true
-  provider: npm
-  email: gavri.guy@gmail.com
-  api_key:
-    secure: iIRsN91brVTpP4+hNIJg8+M89SnJXmM6o+bQ3aXB3bYc+UfQvcRuI+phu7AQfz/Ax0U8DtQAw6X16OMh74xxasLBuOVx6okYc/RRkqPLHWlmPkPXWIg3pa3/YHPLa/ntS7hv3+j04IYt5G2Mf5JTongGnp0LrpZS2HLGdn7FCwHZO/psBYOuPETR7J36M9p2UqKcS0qiY1i85dmnB/7olWIAR5tNNRpi7Z7g8bc5PFkaFZk9sy4rXakEOGzpvkZoBJlb6GpRN19oGnPU4aU+jDrH5u+W/ofunW5mflF3an7/Rz3bcKthSqt9B+7IgyIBTHOCuj4lRoLDhoPJ0vDiA7hmTk5SCSwOdoInbkrboiioTrEByt4Ia7RdL+9IiVHbSnTE4fxBtinE5ISz4GNc/pgH7VM6fFnUW7tQR70g2GNFCpHEWcm+oFIe4OuA4jcZXLubWaZhbUSmt1EY7L0CTHXIsVA2phzsE6rfJSEVlHeLwtWC24H3HwSjmTGKRrNDpYPH6rkZ/1txweh/lj3TWum7IC2kuPxzApMwErX5OJ29tc5zQYJ+qKhomtUoEu0mwvw3TUmClXHFcLKhr+zLrfmek5O7V2AsdWYQywiR5KfLlCtPdBn615czQZ4vX1/XVXopQL5/+3RTjfOSFYxKEiSYMpZmaMsZmerKx+/fBnQ=
-  on:
-    repo: gavriguy/react-indie
+  - '5'
+before_install:
+  - npm i -g npm@^3.0.0
+before_script:
+  - npm prune
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
