@@ -11,6 +11,7 @@
     "prepublish": "npm run build"
   },
   "author": "gavriguy",
+  "repository": "github:gavriguy/react-indie",
   "license": "MIT",
   "keywords": [
     "react",
