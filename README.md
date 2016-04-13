@@ -8,6 +8,10 @@ An independent react Component that holds all its logic inside.
 > Works with any react Architecture out there - at the end react-indie outputs a
 simple React component.
 
+
+![](./react-indie-demo.gif)
+> The gif is showing the built in project example. See [Live Playground] bellow for running it on your local machine, or check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example) on github.
+
 There are cases that you want to have in your react code an independent component
 that is not connected to the rest of the application global store (e.g. redux).
 
