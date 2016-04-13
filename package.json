@@ -1,6 +1,6 @@
 {
   "name": "react-indie",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "An independent react Component that holds all its logic inside",
   "main": "lib/index.js",
   "scripts": {
