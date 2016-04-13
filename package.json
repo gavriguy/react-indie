@@ -1,6 +1,7 @@
 {
   "name": "react-indie",
   "description": "An independent react Component that holds all its logic inside",
+  "version": "1.0.13",
   "main": "lib/index.js",
   "scripts": {
     "test": "ava -v",
