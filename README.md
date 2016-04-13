@@ -1,6 +1,7 @@
 # react-indie
 
 [![npm](https://img.shields.io/npm/v/react-indie.svg?maxAge=2592000)](https://www.npmjs.com/package/react-indie)
+[![Build Status](https://travis-ci.org/gavriguy/react-indie.svg?branch=master)](https://travis-ci.org/gavriguy/react-indie)
 
 An independent react Component that holds all its logic inside.
 
