@@ -14,10 +14,15 @@ import indie from '../src/index.jsx';
 const MyComponent = (props) => (<div>{ props.someValue }</div>);
 
 test.cb('indie starts with initial data and then loads new data', t => {
-  const propsConfig = {
-    someValue: ['initial value', 'loaded'],
-  };
-  const wrapper = mount(indie(MyComponent, propsConfig));
+  const Indie = indie()
+  .initial(() => ({
+    someValue: 'initial value',
+  }))
+  .load(() => ({
+    someValue: 'loaded',
+  }))
+  .render(MyComponent);
+  const wrapper = mount(Indie);
   t.is(wrapper.html(), '<div><div>initial value</div></div>', 'show initial data');
   setTimeout(() => {
     t.is(wrapper.html(), '<div><div>loaded</div></div>', 'show loaded data');
