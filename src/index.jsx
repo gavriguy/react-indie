@@ -1,11 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { props as promiseProps } from 'bluebird';
+import { forEach } from 'lodash';
 
-export default function () {
+export default function (ReactComponent, propsConfig) {
   class Container extends Component {
     constructor(props) {
       super(props);
-      this.state = props.initialProps;
+      this.state = props.defaultProps;
       promiseProps(props.loadedProps)
         .then(res => {
           this.setState(res);
@@ -19,30 +20,20 @@ export default function () {
     }
   }
   Container.propTypes = {
-    initialProps: PropTypes.object,
+    defaultProps: PropTypes.object,
     loadedProps: PropTypes.object,
     children: React.PropTypes.element,
   };
+  const defaultProps = {};
+  const loadedProps = {};
+  forEach(propsConfig, ([defaultProp, loadedProp], key) => {
+    defaultProps[key] = defaultProp;
+    loadedProps[key] = loadedProp;
+  });
 
-  class Indie {
-    initial(cb) {
-      this.initialProps = cb();
-      return this;
-    }
-
-    load(cb) {
-      this.loadedProps = cb();
-      return this;
-    }
-
-    render(ReactComponent) {
-      const { initialProps, loadedProps } = this;
-      return (
-        <Container loadedProps={loadedProps} initialProps={initialProps}>
-          <ReactComponent />
-        < /Container>
-      );
-    }
-  }
-  return new Indie();
+  return (
+    <Container loadedProps={loadedProps} defaultProps={defaultProps}>
+      <ReactComponent />
+    < /Container>
+  );
 }

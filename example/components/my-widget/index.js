@@ -28,16 +28,10 @@ function mockAjaxRequest() {
 }
 
 export default function () {
-  return indie()
-    .initial(() => ({
-      title: 'Loading...',
-      subtitle: 'Please wait',
-      bgColor: '#ccc',
-    }))
-    .load(() => ({
-      title: mockAjaxRequest(),
-      subtitle: 'Loaded subtitle',
-      bgColor: '#1bc98e',
-    }))
-    .render(MyComponent);
+  const propsConfig = {
+    title: ['Loading...', mockAjaxRequest()],
+    subtitle: ['Please wait', 'Loaded subtitle'],
+    bgColor: ['#ccc', '#1bc98e'],
+  };
+  return indie(MyComponent, propsConfig);
 }
