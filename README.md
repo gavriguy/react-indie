@@ -10,9 +10,6 @@ A React high level component that holds all its logic inside.
 > Works with any react Architecture out there - at the end react-indie outputs a
 simple React component.
 
-![](./react-indie-demo.gif)
-> The above gif is showing the built in project example. See [Live Playground] bellow for running it on your local machine, or check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example) on github.
-
 There are cases that you want to have in your react code an independent component
 that is not connected to the rest of the application global store (e.g. redux).
 
@@ -33,7 +30,7 @@ indie(Component, propsConfig)
 
 **propsConfig:** and object with keys that mach the Component`s props.
 the value of each key is an array with 2 arguments the first is the prop's default
-value and the second is the prop's loaded value. The loaded value can be of type promise.
+initial value and the second is the prop's loaded value. The loaded value can be of type promise,
 and can run ajax server requests.
 
 check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example)
