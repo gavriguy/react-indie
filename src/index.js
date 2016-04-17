@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { props as promiseProps } from 'bluebird';
 import { forEach, isFunction, reduce } from 'lodash';
 
-export default (ReactComponent, propsConfig) => class extends Component {
+export default (ReactComponent, propsConfig, onResolve) => class extends Component {
   constructor(props) {
     super(props);
     [this.defaultProps, this.loadedProps, this.errorProps] = [{}, {}, {}];
@@ -15,6 +15,7 @@ export default (ReactComponent, propsConfig) => class extends Component {
     promiseProps(this.loadedProps)
     .then(res => {
       this.setState(res);
+      if (onResolve) onResolve()(this.state, this);
     })
     .catch((err) => {
       const errorState = reduce(this.errorProps, (result, value, key) => {

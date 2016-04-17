@@ -39,8 +39,8 @@ const Widget1 = indie(SimpleComponent, widget1propsConfig);
 // * Widget handels error with hard coded data
 
 const widgetr2propsConfig = {
-  title: ['W2 Loading...', mockErrorAjaxRequest()],
-  subtitle: ['Please wait', 'Loaded subtitle'],
+  title: ['W2 Loading...', mockErrorAjaxRequest(), 'Something went wrong...'],
+  subtitle: ['Please wait', 'Loaded subtitle', 'Unknown error'],
   bgColor: ['#ccc', '#1bc98e', 'red'],
 };
 const Widget2 = indie(SimpleComponent, widgetr2propsConfig);
@@ -57,12 +57,34 @@ const widgetr3propsConfig = {
 };
 const Widget3 = indie(SimpleComponent, widgetr3propsConfig);
 
+// Widget4
+// * Widget get default data
+// * Widgets load data from the server
+// * Widget exectues resolve function
+
+const widget4propsConfig = {
+  title: ['W1 Loading...', mockAjaxRequest()],
+  subtitle: ['Please wait', 1],
+  bgColor: ['#ccc', '#1bc98e'],
+};
+
+function mockOnResolve() {
+  return (props, component) => {
+    let num = props.subtitle;
+    setInterval(() => {
+      component.setState({ subtitle: num++ });
+    }, 1000);
+  };
+}
+const Widget4 = indie(SimpleComponent, widget4propsConfig, mockOnResolve);
+
 ReactDOM.render(
   (<div>
     <h1>Example Page</h1>
     <Widget1 />
     <Widget2 />
     <Widget3 />
+    <Widget4 />
   </div>),
   document.getElementById('app')
 );
