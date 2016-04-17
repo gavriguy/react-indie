@@ -30,7 +30,8 @@ indie(Component, propsConfig)
 
 **propsConfig:** and object with keys that mach the Component`s props.
 the value of each key is an array with 3 arguments:
-1. prop's default
+
+1. The prop's default.
 1. The loaded value - a promise used to load data from an ajax server request for example.
 1. The error value of the prop in case the server returns an error.
 It can also be a callback that gets the server error as an argument and returns
