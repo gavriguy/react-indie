@@ -31,3 +31,39 @@ test.cb('indie starts with initial data and then loads new data', t => {
     t.end();
   });
 });
+
+test.cb('indie handles server error', t => {
+  const propsConfig = {
+    someValue: [
+      'initial',
+      new Promise((resolve, reject) => {
+        reject(new Error('Some server error'));
+      }),
+      'error',
+    ],
+  };
+  const Indie = indie(MyComponent, propsConfig);
+  const mounted = mount(<Indie />);
+  setTimeout(() => {
+    t.is(mounted.html(), '<div>error</div>', 'handle error');
+    t.end();
+  });
+});
+
+test.cb('indie handles server error and pass error in callback', t => {
+  const propsConfig = {
+    someValue: [
+      'initial',
+      new Promise((resolve, reject) => {
+        reject(new Error('Some server error'));
+      }),
+      (err) => err.message,
+    ],
+  };
+  const Indie = indie(MyComponent, propsConfig);
+  const mounted = mount(<Indie />);
+  setTimeout(() => {
+    t.is(mounted.html(), '<div>Some server error</div>', 'pass error in callback');
+    t.end();
+  });
+});
