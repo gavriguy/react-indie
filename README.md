@@ -23,7 +23,7 @@ from a remote server and doesn't affect the rest of your app.
 `react-indie` API follows the conventions of other high order components:
 
 ```jsx
-indie(Component, propsConfig)
+indie(Component, propsConfig, onResolve)
 ```
 
 **Component:** the react component to wrapper
