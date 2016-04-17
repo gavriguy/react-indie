@@ -41,9 +41,9 @@ the error value.
 
 An `onResolve` function to be executed once the promise was resolved.
 This can be used to run a `setInterval` script that fetches data from the server in a set interval.
-the function itself should return a function with 2 params:
-    * props - the component props that the component has once resolved
-    * component - the component itself - goof for setting its state. see Widget4
+The function itself should return a function with 2 params:
+    * props - the component props that the component has once resolved.
+    * component - the component itself - good for setting its state. see Widget4
   in the project example for more implementation details.
 
 check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example)
