@@ -67,3 +67,20 @@ test.cb('indie handles server error and pass error in callback', t => {
     t.end();
   });
 });
+
+test.cb('indie handles onResolve', t => {
+  const propsConfig = {
+    someValue: [
+      'initial',
+      'loaded',
+      null,
+    ],
+  };
+  const onResolve = () => (props, component) => {component.setState({ someValue: 'resolved' });};
+  const Indie = indie(MyComponent, propsConfig, onResolve);
+  const mounted = mount(<Indie />);
+  setTimeout(() => {
+    t.is(mounted.html(), '<div>resolved</div>', 'Run onResolve function onResolve');
+    t.end();
+  });
+});

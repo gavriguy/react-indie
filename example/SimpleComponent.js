@@ -22,6 +22,6 @@ export const SimpleComponent = (props) => {
 
 SimpleComponent.propTypes = {
   bgColor: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
   title: PropTypes.string,
 };

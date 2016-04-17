@@ -32,10 +32,19 @@ indie(Component, propsConfig)
 the value of each key is an array with 3 arguments:
 
 1. The prop's default.
-1. The loaded value - a promise used to load data from an ajax server request for example.
-1. The error value of the prop in case the server returns an error.
+1. (Optional) The loaded value - a promise used to load data from an ajax server request for example.
+1. (Optional) The error value of the prop in case the server returns an error.
 It can also be a callback that gets the server error as an argument and returns
 the error value.
+
+**onResolve** (Optional, Advanced)
+
+An `onResolve` function to be executed once the promise was resolved.
+This can be used to run a `setInterval` script that fetches data from the server in a set interval.
+the function itself should return a function with 2 params:
+    * props - the component props that the component has once resolved
+    * component - the component itself - goof for setting its state. see Widget4
+  in the project example for more implementation details.
 
 check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example)
 or [the test code](https://github.com/gavriguy/react-indie/blob/master/test/index.js) for more info.
@@ -53,11 +62,6 @@ or [the test code](https://github.com/gavriguy/react-indie/blob/master/test/inde
 
 > You can also run test by calling `npm test`
 
-## TODOs
-
-* Add built-in data refresh mechanism (good for widgets)
-
 ## Acknowledgements
 
 The package code setup inspired from https://github.com/airbnb/rheostat
-Architecture inspired form storybook
