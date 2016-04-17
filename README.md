@@ -13,7 +13,7 @@ simple React component.
 There are cases that you want to have in your react code an independent component
 that is not connected to the rest of the application global store (e.g. redux).
 
-I'm not talking about pure stateless components but on stateful components that
+I'm not talking about pure stateless components but on state-full components that
 don't need to share their knowledge with the rest of the app; an example to
 that kind of component can be a wether widget that gets the current temperature
 from a remote server and doesn't affect the rest of your app.
@@ -29,9 +29,12 @@ indie(Component, propsConfig)
 **Component:** the react component to wrapper
 
 **propsConfig:** and object with keys that mach the Component`s props.
-the value of each key is an array with 2 arguments the first is the prop's default
-initial value and the second is the prop's loaded value. The loaded value can be of type promise,
-and can run ajax server requests.
+the value of each key is an array with 3 arguments:
+1. prop's default
+1. The loaded value - a promise used to load data from an ajax server request for example.
+1. The error value of the prop in case the server returns an error.
+It can also be a callback that gets the server error as an argument and returns
+the error value.
 
 check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example)
 or [the test code](https://github.com/gavriguy/react-indie/blob/master/test/index.js) for more info.
@@ -51,7 +54,6 @@ or [the test code](https://github.com/gavriguy/react-indie/blob/master/test/inde
 
 ## TODOs
 
-* Handle Promises Rejections
 * Add built-in data refresh mechanism (good for widgets)
 
 ## Acknowledgements
