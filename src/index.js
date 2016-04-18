@@ -5,6 +5,8 @@ import { forEach, isFunction, reduce } from 'lodash';
 export default (ReactComponent, propsConfig, onResolve) => class extends Component {
   constructor(props) {
     super(props);
+  }
+  componentWillMount() {
     [this.defaultProps, this.loadedProps, this.errorProps] = [{}, {}, {}];
     forEach(propsConfig, ([defaultProp, loadedProp, errorProp], key) => {
       this.defaultProps[key] = defaultProp;
