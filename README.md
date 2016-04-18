@@ -1,9 +1,10 @@
-# react-indie
+![](./logo.png)
 
 [![npm](https://img.shields.io/npm/v/react-indie.svg)](https://www.npmjs.com/package/react-indie)
 [![Build Status](https://travis-ci.org/gavriguy/react-indie.svg?branch=master)](https://travis-ci.org/gavriguy/react-indie)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
+# react-indie
 
 A React high level component that holds all its logic inside.
 
@@ -46,22 +47,24 @@ The function itself should return a function with 2 params:
     * component - the component itself - good for setting its state. see Widget4
   in the project example for more implementation details.
 
-check out [the example code](https://github.com/gavriguy/react-indie/tree/master/example)
-or [the test code](https://github.com/gavriguy/react-indie/blob/master/test/index.js) for more info.
+Check out [the test code](https://github.com/gavriguy/react-indie/blob/master/test/index.js)
+or indies Storybook [stories](https://github.com/gavriguy/react-indie/tree/master/stories/api.js) for more info.
 
 ## Install
 
 `npm install react-indie --save`
 
 ## Live Playground
+React-Indie uses [the awesome Storybook Project](https://github.com/kadirahq/react-storybook) to showcase the component's options.
 
 * clone this repo on your machine
 * `npm install`
-* `npm run example`
-* visit `http://localhost:8080/`
+* `npm run storybook`
+* visit `http://localhost:9001/`
 
-> You can also run test by calling `npm test`
+> You can also run tests by calling `npm test`
 
 ## Acknowledgements
 
 The package code setup inspired from https://github.com/airbnb/rheostat
+The example are presented as Storybook stories https://github.com/kadirahq/react-storybook
