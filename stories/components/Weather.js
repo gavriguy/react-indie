@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Paper from 'material-ui/lib/paper';
 
 export const Weather = (props) => {
-  console.log(props);
   const style = {
     container: {
       width: 400,

@@ -2,7 +2,7 @@ import jsdom from 'jsdom';
 import test from 'ava';
 import React, { PropTypes } from 'react';
 import { mount } from 'enzyme';
-import indie from '../src/index.js';
+import indie, { get } from '../src/index.js';
 
 (function init() {
   const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
@@ -83,4 +83,12 @@ test.cb('indie handles onResolve', t => {
     t.is(mounted.html(), '<div>resolved</div>', 'Run onResolve function onResolve');
     t.end();
   });
+});
+
+test('indie `get` util deconstrucs promise result by a given key or object path', t => {
+  const myPromise = Promise.resolve({ x: 1, y: { z: 2 } });
+  return Promise.all([
+    get(myPromise, 'x').then(res => t.is(res, 1), 'get data from key'),
+    get(myPromise, 'y.z').then(res => t.is(res, 2, 'get data from nested path')),
+  ]);
 });
