@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { props as promiseProps } from 'bluebird';
-import { forEach, isFunction, reduce } from 'lodash';
+import { forEach, isFunction, reduce, get as lodashGet } from 'lodash';
 
 export default (ReactComponent, propsConfig, onResolve) => class extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillMount() {
     [this.defaultProps, this.loadedProps, this.errorProps] = [{}, {}, {}];
     forEach(propsConfig, ([defaultProp, loadedProp, errorProp], key) => {
@@ -35,3 +32,7 @@ export default (ReactComponent, propsConfig, onResolve) => class extends Compone
     return (<ReactComponent {...this.state} />);
   }
 };
+
+export const get = (promise, path) => (
+  promise.then(obj => (lodashGet(obj, path)))
+);
