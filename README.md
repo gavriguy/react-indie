@@ -16,7 +16,7 @@ that is not connected to the rest of the application global store (e.g. redux).
 
 I'm not talking about pure stateless components but on state-full components that
 don't need to share their knowledge with the rest of the app; an example to
-that kind of component can be a wether widget that gets the current temperature
+that kind of component can be a weather widget that gets the current temperature
 from a remote server and doesn't affect the rest of your app.
 
 ## API
